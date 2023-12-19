@@ -1,0 +1,25 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "さんぷる",
+      "price": 2000,
+      "memo": "メモ",
+      "icon": true
+    },
+    {
+      "id": 2,
+      "title": "さんぷる2",
+      "price": 2500,
+      "memo": "メモ2",
+      "icon": false
+    },
+    {
+      "id": 3,
+      "title": "さんぷる3",
+      "price": 1000,
+      "memo": "メモ3",
+      "icon": true
+    }
+  ]
+}
