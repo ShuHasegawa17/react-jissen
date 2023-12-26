@@ -11,10 +11,17 @@ export default function FormBasic() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty, isValid, isSubmitting },
   } = useForm({ defaultValues });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+        console.log(data);
+      }, 4000);
+    });
+  };
   const onError = (err) => console.log(err);
 
   return (
@@ -58,8 +65,6 @@ export default function FormBasic() {
           />
           女性
         </label>
-        <div>{errors.gender?.message}</div>
-
         <div style={{ color: 'red' }}>{errors.gender?.message}</div>
       </div>
 
@@ -69,7 +74,7 @@ export default function FormBasic() {
           id="memo"
           {...register('memo', {
             required: '備考は必須です',
-            validate: (value, formValues) => {
+            validate: (value, _formValues) => {
               const ngs = ['暴力', 'グロ', '死'];
               for (const ng of ngs) {
                 if (value.includes(ng)) {
@@ -88,7 +93,10 @@ export default function FormBasic() {
       </div>
 
       <div>
-        <button type="submit">送信</button>
+        <button type="submit" disabled={!isDirty || !isValid || isSubmitting}>
+          送信
+        </button>
+        {isSubmitting && <div>送信中...</div>}
       </div>
     </form>
   );

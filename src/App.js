@@ -5,8 +5,10 @@ import Books from './chap3/Books';
 import data from './data/books.json';
 import QueryPoke from './chap6/QueryPoke';
 import FormBasic from './chap4/FormBasic';
+import FormYup from './chap4/FormYup';
 
 function App() {
+  const styleBorder = { border: '1px solid', padding: '20px' };
   const bookList = JSON.parse(JSON.stringify(data)).books;
   return (
     <div className="App">
@@ -27,8 +29,15 @@ function App() {
       {/* <MyHello name={'shu'} />
       <MyHello />
       <Books books={bookList}></Books> */}
-      <QueryPoke />
-      <FormBasic />
+      <div style={styleBorder}>
+        <QueryPoke />
+      </div>
+      <div style={styleBorder}>
+        <FormBasic />
+      </div>
+      <div style={styleBorder}>
+        <FormYup />
+      </div>
     </div>
   );
 }
