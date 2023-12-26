@@ -6,6 +6,7 @@ import data from './data/books.json';
 import QueryPoke from './chap6/QueryPoke';
 import FormBasic from './chap4/FormBasic';
 import FormYup from './chap4/FormYup';
+import TodoList from './todolist/TodoList';
 
 function App() {
   const styleBorder = { border: '1px solid', padding: '20px' };
@@ -37,6 +38,9 @@ function App() {
       </div>
       <div style={styleBorder}>
         <FormYup />
+      </div>
+      <div style={styleBorder}>
+        <TodoList />
       </div>
     </div>
   );
